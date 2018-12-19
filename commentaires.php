@@ -14,7 +14,7 @@
 // Connexion à la base de données
 try
 {
-	$bdd = new PDO('mysql:host=localhost;dbname=miniblog;charset=utf8', 'username', 'password');
+	$bdd = new PDO('mysql:host=localhost;dbname=miniblog;charset=utf8', 'root', '');
 }
 catch(Exception $e)
 {
