@@ -12,6 +12,7 @@
 
         <div class="news">
             <h3>
+            <?php //var_dump($post)?> 
                 <?= htmlspecialchars($post['titre']) ?>
                 <em>le <?= $post['creation_date_fr'] ?></em>
             </h3>
