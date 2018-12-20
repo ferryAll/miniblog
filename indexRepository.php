@@ -12,12 +12,12 @@
 
         <div class="news">
             <h3>
-                <?= htmlspecialchars($post['title']) ?>
+                <?= htmlspecialchars($post['titre']) ?>
                 <em>le <?= $post['creation_date_fr'] ?></em>
             </h3>
             
             <p>
-                <?= nl2br(htmlspecialchars($post['content'])) ?>
+                <?= nl2br(htmlspecialchars($post['contenu'])) ?>
             </p>
         </div>
 
@@ -28,7 +28,7 @@
         {
         ?>
             <p><strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+            <p><?= nl2br(htmlspecialchars($comment['commentaire'])) ?></p>
         <?php
         }
         ?>

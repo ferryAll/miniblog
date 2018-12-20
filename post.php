@@ -2,7 +2,7 @@
 require('model.php');
 
 if(isset($_GET['id']) && $_GET['id'] >à) {
-    $post = getPost([$_GEET['id']);
+    $post = getPost([$_GET['id']);
     $comments = getComments($_GET['id']);
     require('indexRepository');
 }
