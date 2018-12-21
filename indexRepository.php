@@ -9,7 +9,9 @@
     <body>
         <h1>Mon super blog !</h1>
         <p><a href="index.php">Retour à la liste des billets</a></p>
-
+       <?php while ($post = $req->fetch())
+        {
+        ?>
         <div class="news">
             <h3>
             <?php //var_dump($post)?> 
@@ -19,19 +21,16 @@
             
             <p>
                 <?= nl2br(htmlspecialchars($post['contenu'])) ?>
+                <br />
+                <em><a href="post.php?id=<?= $post['id'] ?>">Commentaires</a></em>
             </p>
         </div>
 
-        <h2>Commentaires</h2>
-
-        <?php
-        while ($comment = $comments->fetch())
-        {
-        ?>
-            <p><strong><?= htmlspecialchars($comment['auteur']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
-            <p><?= nl2br(htmlspecialchars($comment['commentaire'])) ?></p>
-        <?php
+        
+        <?php 
+        
         }
         ?>
+
     </body>
 </html>

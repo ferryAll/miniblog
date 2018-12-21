@@ -1,24 +1,24 @@
 <?php
-function getBillets()
+function getPosts()
 {
     $db = dbConnect();
 
-    $req = $db->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
+    $req = $db->query('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à
+     %Hh%imin%ss\') AS creation_date_fr FROM billets ORDER BY date_creation DESC LIMIT 0, 5');
    
     return $req;
 }
 
-function getPosts()
-{
-    // ... deja écrite
-}
+
 
 function getPost($postId)
 {
     $db = dbConnect();
-    $req = $db->prepare('SELECT id, titre, contenu, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+    $req = $db->prepare('SELECT id, titre, contenu, DATE_FORMAT(date_creation, \'%d/%m/%Y à
+     %Hh%imin%ss\') AS creation_date_fr FROM billets WHERE id = ?');
     $req->execute(array($postId));
     $post = $req->fetch();
+    return $post;
 }
 
 
@@ -27,7 +27,8 @@ function getComments($postId)
 {
     $db = dbConnect();
 
-    $comments = $db->prepare('SELECT id, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
+    $comments = $db->prepare('SELECT id, auteur, commentaire, DATE_FORMAT(date_commentaire, \'%d/%m/%Y à
+     %Hh%imin%ss\') AS date_commentaire_fr FROM commentaires WHERE id_billet = ? ORDER BY  date_commentaire DESC');
     $comments->execute(array($postId));
 
     return $comments;

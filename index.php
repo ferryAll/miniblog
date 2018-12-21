@@ -2,8 +2,7 @@
 
 require('model.php');
 
-$req = getBillets();
-$req = 
+$req = getPosts();
 
 require('indexRepository.php');
 
