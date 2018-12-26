@@ -8,7 +8,6 @@
         
     <body>
         <h1>Mon super blog !</h1>
-        <p><a href="index.php">Retour à la liste des billets</a></p>
        <?php while ($post = $req->fetch())
         {
         ?>
